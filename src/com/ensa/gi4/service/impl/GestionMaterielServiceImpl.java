@@ -20,7 +20,7 @@ public class GestionMaterielServiceImpl implements GestionMaterielService {
 
     @Override
     public void listerMateriel() {
-        System.out.println("Liste de matériel :\n"+ bd.livres.size() +"  Livres \n et "+  bd.chaises.size()+"chaises");
+        System.out.println("Liste de matériel :\n"+ bd.livres.size() +"  Livres \n et "+  bd.chaises.size()+" chaises");
         System.out.println("Liste des livres ");
         for(int i=0;i<bd.livres.size();i++) {
 			System.out.println("Nom : " + bd.livres.get(i).getName() );	
@@ -93,7 +93,7 @@ public class GestionMaterielServiceImpl implements GestionMaterielService {
 	}
 
 	@Override
-	public void rechercherMateriel(String nom, int type) {
+	public boolean rechercherMateriel(String nom, int type) {
 		// TODO Auto-generated method stub
 		boolean tr = false;
 		if(type == 1) {
@@ -107,14 +107,18 @@ public class GestionMaterielServiceImpl implements GestionMaterielService {
     		for(int i=0;i<bd.chaises.size();i++) {
     			if( bd.chaises.get(i).getName().equals(nom) ) {
     				tr=true;
+    				
     			}
     		}
     	}
 		if(tr) {
 			System.out.println("Materiel trouvé avec succées");
+			
 
 		}else {System.out.println("Materiel non trouvé");
+		
 }
+		return tr;
 	}
 
 	@Override
@@ -145,4 +149,15 @@ public class GestionMaterielServiceImpl implements GestionMaterielService {
 		}else {System.out.println("Materiel non trouvé");
 		
 	}
-	}}
+	}
+
+	@Override
+	public int listeSize(int type) {
+		// TODO Auto-generated method stub
+		if(type==1)return bd.livres.size();
+		else if(type==2)return bd.chaises.size();
+		return 0;
+		
+	}
+	
+	}

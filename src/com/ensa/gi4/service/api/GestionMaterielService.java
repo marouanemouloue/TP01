@@ -8,7 +8,8 @@ public interface GestionMaterielService {
     void ajouterNouveauMateriel(Materiel materiel);
     void supprimerMateriel(String nom,int type) ;
     void modifierMateriel(String nom,String nouveauNom,int type);
-    void rechercherMateriel(String nom,int type);
+    boolean rechercherMateriel(String nom,int type);
     void allouerMateriel(String nom,int type);
+    int listeSize(int type);
 
 }

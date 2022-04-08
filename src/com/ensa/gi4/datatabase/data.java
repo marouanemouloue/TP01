@@ -36,6 +36,9 @@ public data() {
 	c1.setName("c1");
 	c1.setType(2);
 	chaises.add(c1);
+	c2.setName("c2");
+	c2.setType(2);
+	chaises.add(c2);
 	
 }
 }
