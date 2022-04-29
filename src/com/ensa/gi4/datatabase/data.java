@@ -10,36 +10,50 @@ public class data {
 
 
 
-public ArrayList<Livre> livres = new ArrayList<Livre> ();  ;
+public ArrayList<Livre> livres;
+Livre livre1;
+Livre livre2 ;
 
 
 
 
-public ArrayList<Chaise> chaises= new ArrayList<Chaise> (); 
+public ArrayList<Chaise> chaises; 
+Chaise c1;
+Chaise c2;
 
-public data() {
-	Livre l1 = new Livre();
-	Livre l2 = new Livre();
+public data() {}
+
+public Livre getLivre1() {
+	return livre1;
+}
+
+public Livre getLivre2() {
+	return livre2;
+}
+
+public void setLivre1(Livre livre1) {
+	this.livre1 = livre1;
+}
+
+public void setLivre2(Livre livre2) {
+	this.livre2 = livre2;
+}
+
+public ArrayList<Livre> getLivres() {
+	return livres;
+}
 
 
+public ArrayList<Chaise> getChaises() {
+	return chaises;
+}
 
-	Chaise c1=new Chaise();
-	Chaise c2=new Chaise();
-	 
-	l1.setName("l1");
-	l1.setType(1);
-	l2.setName("l2");
-	l2.setType(2);
-	livres.add(l1);
-	livres.add(l2);
-	
-	c1.setName("c1");
-	c1.setType(2);
-	chaises.add(c1);
-	c2.setName("c2");
-	c2.setType(2);
-	chaises.add(c2);
-	
+public void setLivres(ArrayList<Livre> livres) {
+	this.livres = livres;
+}
+
+public void setChaises(ArrayList<Chaise> chaises) {
+	this.chaises = chaises;
 }
 }
 

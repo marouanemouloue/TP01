@@ -8,11 +8,19 @@ import com.ensa.gi4.service.api.GestionMaterielService;
 import java.io.Console;
 import java.util.Scanner;
 
-import com.ensa.gi4.datatabase.*;
+import com.ensa.gi4.datatabase.data;
 public class GestionMaterielServiceImpl implements GestionMaterielService {
     // bd goes here
-	data bd = new data();
-    @Override
+	data bd;
+    public data getBd() {
+		return bd;
+	}
+
+	public void setBd(data bd) {
+		this.bd = bd;
+	}
+
+	@Override
     public void init() {
         System.out.println("inititialisation du service");
         
@@ -20,6 +28,7 @@ public class GestionMaterielServiceImpl implements GestionMaterielService {
 
     @Override
     public void listerMateriel() {
+
         System.out.println("Liste de matériel :\n"+ bd.livres.size() +"  Livres \n et "+  bd.chaises.size()+" chaises");
         System.out.println("Liste des livres ");
         for(int i=0;i<bd.livres.size();i++) {

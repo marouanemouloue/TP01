@@ -1,14 +1,53 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
 		http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
-    <bean id="gestionMaterielService" class="com.ensa.gi4.service.impl.GestionMaterielServiceImpl"/>
 
-    <bean id="gestionMaterielController" class="com.ensa.gi4.controller.GestionMaterielController">
-        <property name="gestionMaterielService" ref="gestionMaterielService"/>
-    </bean>
+	<bean id="l1" class="com.ensa.gi4.modele.Livre">
+		<property name="name" value="l1" />
+		<property name="type" value="1" />
+
+	</bean>
+	<bean id="l2" class="com.ensa.gi4.modele.Livre">
+		<property name="name" value="l2" />
+		<property name="type" value="1" />
+	</bean>
+			<bean id="c1" class="com.ensa.gi4.modele.Chaise">
+		<property name="name" value="c1" />
+		<property name="type" value="2" />
+
+	</bean>
+		<bean id="c2" class="com.ensa.gi4.modele.Chaise">
+		<property name="name" value="c2" />
+		<property name="type" value="2" />
+
+	</bean>
+	<bean id="bd" class="com.ensa.gi4.datatabase.data">
+		<property name="livres">
+			<list>
+				<ref bean="l1" />
+				<ref bean="l2" />
+			</list>
+		</property>
+		<property name="chaises">
+			<list>
+				<ref bean="c1" />
+				<ref bean="c2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="gestionMaterielService" class="com.ensa.gi4.service.impl.GestionMaterielServiceImpl">
+		<property name="bd" ref="bd" />
+
+	</bean>
+
+	<bean id="gestionMaterielController" class="com.ensa.gi4.controller.GestionMaterielController">
+		<property name="gestionMaterielService" ref="gestionMaterielService" />
+
+	</bean>
 
 
 </beans>
